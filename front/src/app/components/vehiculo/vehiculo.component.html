@@ -1,0 +1,90 @@
+    <video autoplay muted loop id="myVideo" #myVideo>
+    <source src="./assets/img/Car - 79065.mp4" type="video/mp4" />
+    </video>    
+    <div class="row">
+    <div class="col-md-4 mx-auto">
+        <div id="container">
+        <div
+            class="card"
+            id="continer_list"
+            style="
+            box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+            background-color: #cccc;
+            "
+            hidden
+        >
+            <div class="card-header" style="color: white">
+            <h1>Vehiculos por Marca</h1>
+            </div>
+            <div class="card-body">
+            <table
+                mat-table
+                [dataSource]="dataSource"
+                class="mat-elevation-z8"
+                style="width: 50%; padding-bottom: 20px; margin-left: 20%"
+            >
+                <!-- Position Column -->
+                <ng-container matColumnDef="cuenta">
+                <th mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let element">{{ element.cuenta }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="marca">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{ element.marca }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            </div>
+        </div>
+        
+        <!--formulario--> 
+        
+        <div
+        class="card"
+        id="continerform"
+        style="
+        box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+        background-color: #cccc;
+        "
+        
+    >
+        <div class="card-header" style="color: white">
+        <h1>Registrar Vehiculo</h1>
+        </div>
+        <div class="card-body" style="display: flex;  flex-direction: column">
+            <mat-form-field appearance="fill">
+                <mat-label>nombre</mat-label>
+                <input  type="text" [(ngModel)]="cliente_create.nombre" matInput >
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>documento</mat-label>
+                <input type="number" [(ngModel)]="cliente_create.documento" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>marca</mat-label>
+                <input  type="text" [(ngModel)]="cliente_create.marca"  matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>color</mat-label>
+                <input type="text" [(ngModel)]="cliente_create.color" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>año_vehiculo</mat-label>
+                <input type="text" [(ngModel)]="cliente_create.ano_vehiculo" matInput>
+            </mat-form-field>            
+            <button mat-button color="primary" (click)='validate()'>Crear</button>
+            <ul>
+                <li *ngFor="let Error of listError">
+                  {{ Error }}
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+        </div>
+    </div>
+    </div>

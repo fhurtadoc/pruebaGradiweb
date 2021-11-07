@@ -1,0 +1,25 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#container{
+    position: absolute; 
+    display: flex;         
+    width: 100%;    
+    height: auto;
+    display: flex;    
+    
+}
+
+#container h1{
+    margin-left: 20px;
+    text-align: center;
+}
+.card{
+    width: 50%;
+    margin: 10px 10px 10px 10px;
+}
